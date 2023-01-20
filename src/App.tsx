@@ -1,25 +1,10 @@
 /** @format */
 import './App.css';
 
-import { useQuery } from '@tanstack/react-query';
-import { useEffect, useReducer, useState } from 'react';
-
-const URL =
-	'https://www.random.org/integers/?num=1&min=1&max=500&col=1&base=10&format=plain&rnd=new';
-
-const getRandomNumberFormApi = async (): Promise<number> => {
-	try {
-		const res = await fetch(URL);
-		const numberString = await res.text();
-
-		return +numberString; // Easy way to transform a string into a number.
-	} catch (error) {
-		throw new Error('Error');
-	}
-};
+import { useRandom } from './hooks/useRandom';
 
 export const App = () => {
-	const query = useQuery(['randomNumber'], getRandomNumberFormApi);
+	const query = useRandom();
 
 	return (
 		<div className='App'>
