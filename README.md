@@ -1,5 +1,3 @@
-<!-- @format -->
-
 # React Query
 
 ## With Fetch Api
